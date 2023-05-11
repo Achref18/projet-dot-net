@@ -1,0 +1,42 @@
+@using HelpDesk.Enums
+@model Complaint
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update complaint</h1>
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    @Html.HiddenFor(model => model.Title)
+        @Html.HiddenFor(model => model.Description)
+    <input type="hidden" asp-for="Id"/>
+    <div class="mb-3">
+        <label asp-for="Action"></label>
+        <input asp-for="Action" class="form-control"/>
+        <span asp-validation-for="Action" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Status"></label>
+        <select asp-for="Status"
+                class="form-select"
+                asp-items="Html.GetEnumSelectList<Status>()">
+            <option disabled="disabled" selected="selected"> Update status</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+
+    </div>
+     <div class="mb-3">
+            <label>
+                <input type="checkbox" asp-for="IsClosed" />
+                <span>Close complaint</span>
+            </label>
+        
+        </div>
+  
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-controller="Tech" asp-action="Index" class="btn btn-secondary">Go back</a>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

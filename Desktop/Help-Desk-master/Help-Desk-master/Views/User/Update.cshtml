@@ -1,0 +1,25 @@
+@model Complaint
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update complaint</h1>
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control"/>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control"/>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-controller="User" asp-action="Index" class="btn btn-secondary">Go back</a>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

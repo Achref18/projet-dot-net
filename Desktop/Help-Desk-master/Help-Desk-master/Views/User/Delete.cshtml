@@ -1,0 +1,20 @@
+@model Complaint
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Complaint</h1>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" disabled class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" disabled class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-controller="User" asp-action="Index" class="btn btn-secondary">Go back</a>
+</form>
+
+
